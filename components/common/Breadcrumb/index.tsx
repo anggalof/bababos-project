@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Breadcrumb = (props: any) => {
   const { titleGeneral } = props;
@@ -8,7 +9,7 @@ const Breadcrumb = (props: any) => {
         <div className="breadcrumb__wrapper">
           <ol className="breadcrumb__list">
             <li>
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li className="active">{titleGeneral.replace(/-/g, ' ')}</li>
           </ol>

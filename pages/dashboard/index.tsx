@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import withAuth from '../../utils/auth';
-import { mockData } from '../../service/mockData';
 import { useAppSelector, useAppDispatch } from '../../lib/hooks'
 import { fetchProductList } from "../../lib/products/productListAction";
 import { TProduct } from '../../service/type';

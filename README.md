@@ -38,4 +38,5 @@ Open [http://localhost:8000/](http://localhost:8000/) with your browser to see t
 - SASS/SCSS
 - Redux (State Management)
 - Axios (Rest Api)
+- Eslint
 ```

@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap');
+
+@import "./components/global";
+@import "./components/button";
+@import "./components/product";
+@import "./components/breadcrumb";
+@import "./components/spinner";
+
+body,
+html {
+  font-family: "SVN-Gilroy", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  color: #777;
+  font-weight: 400;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  margin: 0;
+}

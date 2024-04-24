@@ -22,7 +22,7 @@ const ThankYou = ({ navigation }: any) => {
           Check your email
         </div>
         <div className="text-xs text-center text-black font-medium my-5 mx-[18rem] md:mx-0 px-8 md:px-0">
-          If you didn't receive any mail please contact
+          If you did not receive any mail please contact
           <span className="text-blue-500 ml-1"> info.bababos@bababos.com</span>
         </div>
         <Link href="/" className="bg-[#22A9E2] w-[20rem] flex justify-center items-center rounded-md mx-[20rem] md:w-auto p-4 mt-[20px]">

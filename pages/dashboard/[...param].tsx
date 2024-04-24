@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { sections } from "../../service/sections";
 import Breadcrumb from '../../components/common/Breadcrumb';
 import LoaderAnimation from '../../components/element/LoaderAnimation';
@@ -9,6 +10,7 @@ import { useAppSelector, useAppDispatch } from '../../lib/hooks'
 import { fetchProductDetail } from "../../lib";
 
 export function Product() {
+  const [quantity, setQuantity] = useState<number>(1);
   const [product, setProductSection] = useState<TProduct>({
     id: 0, title: "", price: 0, description: "", category: "", image: "", rating: {
       rate: 0,
@@ -47,6 +49,18 @@ export function Product() {
     setTabDetail(tab);
   };
 
+  const handleIncrement = () => {
+    if (quantity < 100) {
+      setQuantity(prevQuantity => prevQuantity + 1);
+    }
+  };
+
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(prevQuantity => prevQuantity - 1);
+    }
+  };
+
   if (Object.keys(product).length === 0) {
     return <LoaderAnimation />;
   }
@@ -76,9 +90,16 @@ export function Product() {
                 </div>
               </div>
               <div className="product-detail__order">
-                <div className="product-detail__order-button">
-                  Add to Cart
+                <div className="flex items-center ml-6 md:mr-6">
+                  <button className="px-2 rounded-lg border-spacing-x-32 border-blue-500 border-solid border-2 hover:border-blue-100" onClick={handleDecrement}>-</button>
+                  <span className="mx-4">{quantity}</span>
+                  <button className="px-2 rounded-lg border-spacing-x-32 border-blue-500 border-solid border-2 hover:border-blue-100" onClick={handleIncrement}>+</button>
                 </div>
+                <Link href={`/checkout/${product.id}`} className="w-[25rem]">
+                  <div className="product-detail__order-button">
+                    Add to Cart
+                  </div>
+                </Link>
               </div>
               <div className="product-detail__tab">
                 <div

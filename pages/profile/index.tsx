@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import LoaderAnimation from '../../components/element/LoaderAnimation';
 import { sections } from "../../service/sections";
+import withAuth from "../../utils/auth";
 import { THistory, TProfile } from "../../service/type";
-import { stat } from 'fs';
 
-
-export default function Profile() {
+function Profile() {
   const [profile, setProfile] = useState<TProfile>({
     image_url: "",
     company_name: "",
@@ -35,11 +34,14 @@ export default function Profile() {
 
   return (
     <div className="space-container">
-      <div className="block md:flex justify-center mt-10 md:mt-[4rem] mb-14">
+      <div className="text-2xl font-bold mt-10 md:mt-[2rem] mb-8">Profile</div>
+      <div className="block md:flex justify-center mb-14">
         <div className="w-full md:w-6/12 bg-white mr-10 p-2 rounded-lg">
-          <div className="flex items-center">
-            <img src={profile.image_url} className="w-32 object-cover h-18 mr-4" alt="Seller Logo" />
-            <span className="text-xl font-semibold">{profile.company_name}</span>
+          <div className="flex items-center justify-center">
+            <div className="mt-10">
+              <img src={profile.image_url} className="w-full object-cover h-18 mr-4 flex justify-center rounded-3xl" alt="Seller Logo" />
+              <div className="text-xl font-semibold text-center mt-8">{profile.company_name}</div>
+            </div>
           </div>
           <div className="bg-slate-200 h-[1px] my-8"></div>
           <div className="px-4">
@@ -73,3 +75,5 @@ export default function Profile() {
     </div>
   );
 }
+
+export default withAuth(Profile);
